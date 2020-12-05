@@ -4,7 +4,9 @@ const routes = require("./routes");
 
 const server = express();
 
+// Utilizado para que o routes possa pegar o conteudo do post de outro arquivo
 server.use(express.urlencoded({ extended: true }));
+
 server.use(express.static("public"));
 server.use(routes);
 

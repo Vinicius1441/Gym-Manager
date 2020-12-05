@@ -43,11 +43,6 @@ header {
   color: var(--primary-color);
 }
 
-.links a:hover {
-  text-decoration: underline;
-  color: var(--primary-color);
-}
-
 .links a::after {
   content: "";
   width: 0;
