@@ -1,5 +1,6 @@
 const fs = require("fs");
 const data = require("./data.json");
+const { age } = require("./utils.js");
 
 exports.show = (req, res) => {
   const { id } = req.params;
@@ -14,9 +15,11 @@ exports.show = (req, res) => {
 
   const instructor = {
     ...foundInstructor, //Espalhar os dados já conhecidos dentro das "", porém se colocarmos algo nas aspas ela sobrescreve o dado
-    age: "",
+    age: age(foundInstructor.birth),
     services: foundInstructor.services.split(","),
-    created_at: "",
+    created_at: new Intl.DateTimeFormat("en-US").format(
+      foundInstructor.created_at
+    ),
   };
 
   return res.render("instructors/show", { instructor: instructor });
