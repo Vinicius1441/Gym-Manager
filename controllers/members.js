@@ -25,7 +25,7 @@ exports.show = (req, res) => {
 
   const member = {
     ...foundMember, //Espalhar os dados já conhecidos dentro das "", porém se colocarmos algo nas aspas ela sobrescreve o dado
-    age: age(foundMember.birth),
+    birth: date(foundMember.birth).birthDay,
   };
 
   return res.render("members/show", { member: member });
